@@ -20,7 +20,7 @@ Only the Library is functionally implemented. Tracks and Tools are placeholder p
 
 ---
 
-## 2. Project architecture
+## 2. Project architecture:
 
 ```
 /
@@ -68,7 +68,7 @@ The site is:
 
 ---
 
-## 3. Library architecture
+## 3. Library architecture:
 
 This is the core design of the project.
 
@@ -96,7 +96,7 @@ produces this route:
 
 entirely through the generic builder.
 
-### Never create per-resource HTML
+### Never create per-resource HTML:
 
 ```
 library/fedora/index.html     ← MUST NEVER BE CREATED
@@ -105,7 +105,7 @@ library/{anything}/index.html ← MUST NEVER BE CREATED
 
 `library/` contains exactly one file, `index.html`, which is the catalog page. Creating a per-resource HTML file would fork the source of truth and break the model.
 
-### How the route resolves
+### How the route resolves:
 
 `/library/{id}/` is not a directory. It is resolved at request time:
 
@@ -130,7 +130,7 @@ Data is inserted with `createElement` and `textContent` only — never `innerHTM
 
 ---
 
-## 3b. Catalog search, filters and sorting
+## 3b. Catalog search, filters and sorting:
 
 `/library/` loads the JSON of every ID declared in `LIBRARY_RESOURCES` **once**, keeps the parsed documents in an in-memory array for the page session, and runs search, filtering and sorting entirely against that array. No network request is made while typing, and **no index file is generated** — `data/library/*.json` remains the only source of truth.
 
@@ -145,7 +145,7 @@ Each card derives a subtle secondary colour from its `type` through a small `TYP
 
 ## 4. Adding a Library resource
 
-### Step 1 — create the JSON
+### Step 1 — create the JSON:
 
 ```
 data/library/firefox.json
@@ -455,3 +455,5 @@ Note the trade-off: the response carries **HTTP status 404**, so resource routes
 | `test-network` | Missing references that must remain inert |
 
 These are **development fixtures, not real technologies**, and are tagged `test-fixture`. They exist to verify the renderer against varied document shapes. Removing them requires deleting the files and their IDs from `LIBRARY_RESOURCES` — nothing else.
+
+END
