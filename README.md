@@ -455,3 +455,5 @@ Note the trade-off: the response carries **HTTP status 404**, so resource routes
 | `test-network` | Missing references that must remain inert |
 
 These are **development fixtures, not real technologies**, and are tagged `test-fixture`. They exist to verify the renderer against varied document shapes. Removing them requires deleting the files and their IDs from `LIBRARY_RESOURCES` — nothing else.
+
+END
